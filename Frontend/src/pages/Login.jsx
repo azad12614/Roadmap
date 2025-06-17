@@ -25,7 +25,12 @@ function Login() {
 
       const data = await response.json();
       if (response.ok) {
-        login(data.user); // Using context login
+        // Backend responds with { token, userId } on successful login
+        localStorage.setItem("token", data.token);
+
+        // Update auth context
+        login({ _id: data.userId, email });
+
         navigate("/roadmap");
       } else {
         setError(data.message || "Login failed");

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import "./Signup.css";
 
-function Signup({ setUser }) {
+function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -28,14 +28,22 @@ function Signup({ setUser }) {
       });
 
       const data = await response.json();
+
       if (response.ok) {
-        login(data.user);
+        // The backend responds with { token, userId }
+        // Store the token in localStorage to persist the session
+        localStorage.setItem("token", data.token);
+
+        // Update the auth context with user data.
+        // The user object in context can be built from the response and form data.
+        login({ _id: data.userId, email });
+
         navigate("/roadmap");
       } else {
-        setError(data.message || "Signup failed");
+        setError(data.error || "Signup failed");
       }
     } catch (err) {
-      setError("Failed to create account");
+      setError("Failed to create an account. Please try again later.");
     }
     setLoading(false);
   };
@@ -81,7 +89,7 @@ function Signup({ setUser }) {
           </button>
         </form>
         <div className="signup-footer">
-          Already have an account? <a href="/login">Log in</a>
+          Already have an account? <Link to="/login">Log in</Link>
         </div>
       </div>
     </div>

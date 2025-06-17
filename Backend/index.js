@@ -252,12 +252,68 @@ app.get("/api/roadmap", async (req, res) => {
 
     const items = await RoadmapItem.find(query)
       .sort(sortOption)
-      .populate("comments")
+      .populate({
+        path: "comments",
+        populate: [
+          {
+            path: "user",
+            select: "email",
+          },
+          {
+            path: "replies",
+            populate: {
+              path: "user",
+              select: "email",
+            },
+          },
+        ],
+      })
       .lean();
 
     res.json(items);
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch roadmap items" });
+  }
+});
+
+app.post("/api/admin/roadmap/upload-json", authMiddleware, async (req, res) => {
+  try {
+    const { roadmapItems } = req.body;
+
+    if (!Array.isArray(roadmapItems)) {
+      return res
+        .status(400)
+        .json({ error: "Expected an array of roadmap items" });
+    }
+
+    // Validate each item
+    const validatedItems = roadmapItems.map((item) => {
+      if (!item.title || !item.description || !item.category || !item.status) {
+        throw new Error("Missing required fields in roadmap item");
+      }
+
+      return {
+        title: item.title,
+        description: item.description,
+        category: item.category,
+        status: item.status,
+        upvotes: Array.isArray(item.upvotes) ? item.upvotes : [],
+        comments: Array.isArray(item.comments) ? item.comments : [],
+        createdAt: item.createdAt ? new Date(item.createdAt) : new Date(),
+      };
+    });
+
+    const result = await RoadmapItem.insertMany(validatedItems);
+
+    res.status(201).json({
+      message: `${result.length} items uploaded successfully`,
+      uploadedCount: result.length,
+    });
+  } catch (err) {
+    console.error("Upload error:", err);
+    res.status(500).json({
+      error: err.message || "Failed to upload roadmap items",
+    });
   }
 });
 
@@ -327,6 +383,11 @@ app.post(
       await RoadmapItem.findByIdAndUpdate(roadmapItemId, {
         $push: { comments: comment._id },
       });
+
+      // Populate user data in response
+      const populatedComment = await Comment.findById(comment._id)
+        .populate("user", "email")
+        .exec();
 
       res.status(201).json(comment);
     } catch (err) {

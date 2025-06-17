@@ -39,7 +39,7 @@ function App() {
           />
           <Route path="/" element={<Navigate to="/roadmap" />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </Suspense>
   );

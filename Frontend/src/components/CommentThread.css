@@ -1,3 +1,5 @@
+/* CommentThread.css - Updated to match index.css design system */
+
 .comment-section {
   margin-top: var(--space-lg);
   padding-top: var(--space-md);
@@ -11,76 +13,128 @@
   margin-bottom: var(--space-md);
 }
 
+/* Comment input area */
+.comment-input-area {
+  margin-bottom: var(--space-md);
+  background: var(--bg-secondary);
+  padding: var(--space-md);
+  border-radius: 4px;
+  box-shadow: var(--shadow-sm);
+}
+
 .comment-section textarea {
   width: 100%;
-  min-height: 80px;
+  min-height: 100px;
   padding: var(--space-sm);
   font-size: var(--font-size-base);
+  font-family: var(--font-primary);
   border: 1px solid var(--input-border);
   border-radius: 4px;
   background-color: var(--input-bg);
   color: var(--input-text);
   resize: vertical;
+  transition: border-color 0.2s ease;
 }
 
 .comment-section textarea:focus {
   outline: none;
   border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 2px rgba(98, 0, 238, 0.1);
 }
 
 .comment-section textarea::placeholder {
   color: var(--input-placeholder);
 }
 
-.comment-section .comment-actions {
+/* Comment actions */
+.comment-actions {
   display: flex;
   gap: var(--space-sm);
-  margin-top: var(--space-xs);
+  margin-top: var(--space-sm);
 }
 
-.comment-section .comment-actions button {
-  background-color: var(--btn-primary-bg);
-  color: var(--btn-primary-text);
+.comment-actions button {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
   padding: var(--space-xs) var(--space-md);
   border-radius: 4px;
-  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.comment-section .comment-actions button:hover {
+.comment-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Primary action buttons */
+.comment-input-area button,
+.comment-actions button:not(.text-button) {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+}
+
+.comment-input-area button:hover,
+.comment-actions button:not(.text-button):hover:not(:disabled) {
   background-color: var(--btn-primary-hover-bg);
 }
 
+/* Text buttons (cancel, etc) */
+.comment-actions .text-button {
+  background: none;
+  color: var(--btn-text-only-color);
+  border: 1px solid transparent;
+}
+
+.comment-actions .text-button:hover {
+  color: var(--btn-text-only-hover-color);
+  border-color: var(--border-light);
+}
+
+/* Individual comments */
 .comment {
   margin: var(--space-md) 0;
-  padding: var(--space-sm);
-  border-left: 2px solid var(--border-light);
+  padding: var(--space-md);
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  box-shadow: var(--shadow-sm);
 }
 
 .depth-1 {
-  padding-left: var(--space-lg);
+  margin-left: var(--space-lg);
+  border-left: 2px solid var(--border-light);
 }
+
 .depth-2 {
-  padding-left: var(--space-xl);
+  margin-left: var(--space-xl);
+  border-left: 2px solid var(--border-light);
 }
+
 .depth-3 {
-  padding-left: var(--space-xxl);
+  margin-left: var(--space-xxl);
+  border-left: 2px solid var(--border-light);
 }
 
 .comment p {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   color: var(--text-primary);
   margin-bottom: var(--space-xs);
+  line-height: var(--line-height-base);
 }
 
 .comment small {
+  display: block;
   font-size: var(--font-size-xs);
   color: var(--text-muted);
+  margin-bottom: var(--space-xs);
 }
 
 .comment .comment-controls {
   display: flex;
   gap: var(--space-xs);
-  margin-top: var(--space-xs);
+  margin-top: var(--space-sm);
 }
 
 .comment .comment-controls button {
@@ -88,9 +142,49 @@
   border: none;
   color: var(--btn-text-only-color);
   font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
   cursor: pointer;
+  padding: var(--space-xxs) var(--space-xs);
 }
 
 .comment .comment-controls button:hover {
   color: var(--btn-text-only-hover-color);
+  text-decoration: underline;
+}
+
+/* Comment editor and reply boxes */
+.comment-editor,
+.reply-box {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Error handling */
+.error-message {
+  color: var(--error);
+  background-color: rgba(211, 47, 47, 0.1);
+  padding: var(--space-sm);
+  border-radius: 4px;
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-sm);
+}
+
+/* Character counter */
+.character-counter {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: var(--space-xxs);
+}
+
+.character-counter.warning {
+  color: var(--warning);
+}
+
+.character-counter.error {
+  color: var(--error);
+  font-weight: var(--font-weight-medium);
 }

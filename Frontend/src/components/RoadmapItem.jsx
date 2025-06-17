@@ -1,13 +1,27 @@
 // RoadmapItem.jsx
-import { API_BASE_URL } from "../utils/constants";
+import { API_BASE_URL } from "../utils/api.js";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CommentThread from "./CommentThread";
-import "./CommentThread.css";
+import "./CommentThread.css"; // Ensure this is imported for styling
 
 function RoadmapItem({ item, userId }) {
   const [upvoted, setUpvoted] = useState(item.upvotes.includes(userId));
   const [upvoteCount, setUpvoteCount] = useState(item.upvotes.length);
+  const [comments, setComments] = useState(item.comments); // Manage comments state here
+
+  // Function to re-fetch comments for this specific roadmap item
+  const fetchComments = async () => {
+    try {
+      // You might need a specific endpoint to fetch comments for a single item
+      // For now, let's assume we fetch the whole item again and extract comments
+      // A better approach would be: GET /api/roadmap/:id/comments
+      const res = await axios.get(`${API_BASE_URL}/roadmap/${item._id}`);
+      setComments(res.data.comments); // Assuming the response contains the updated item with comments
+    } catch (error) {
+      console.error("Failed to fetch comments for item:", item._id, error);
+    }
+  };
 
   const handleUpvote = async () => {
     const prevUpvoted = upvoted;
@@ -25,6 +39,7 @@ function RoadmapItem({ item, userId }) {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
+      // No need to re-fetch comments for upvote
     } catch (error) {
       // Rollback on error
       setUpvoted(prevUpvoted);
@@ -46,7 +61,8 @@ function RoadmapItem({ item, userId }) {
       <CommentThread
         roadmapItemId={item._id}
         userId={userId}
-        comments={item.comments}
+        comments={comments} // Pass the state-managed comments
+        onCommentUpdate={fetchComments} // Pass the callback to re-fetch
       />
     </div>
   );

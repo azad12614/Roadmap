@@ -1,0 +1,72 @@
+/* src/components/JsonUploader.css */
+
+.json-uploader-container {
+  background-color: var(--card-bg); /* Reusing variable for card background */
+  border: 1px solid var(--card-border); /* Reusing variable for card border */
+  border-radius: 8px;
+  padding: var(--space-lg);
+  box-shadow: var(--card-shadow);
+  margin-top: var(--space-xl); /* Add some space above */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md); /* Space between elements */
+  align-items: flex-start; /* Align content to the start */
+}
+
+.json-uploader-container h3 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.json-uploader-input {
+  padding: var(--space-sm);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  font-size: var(--font-size-base);
+  width: 100%; /* Full width */
+  max-width: 300px; /* Limit max width for desktop */
+}
+
+.json-uploader-button {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.json-uploader-button:hover {
+  background-color: var(--btn-primary-hover-bg);
+}
+
+.json-uploader-button:disabled {
+  background-color: var(
+    --status-deprecated
+  ); /* Use a muted color for disabled */
+  cursor: not-allowed;
+}
+
+.json-uploader-message {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.json-uploader-note {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: var(--space-sm);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .json-uploader-container {
+    padding: var(--space-md);
+  }
+}
