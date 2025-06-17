@@ -1,0 +1,91 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: var(--bg-secondary);
+  padding: var(--space-md);
+}
+
+.login-card {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-xl);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-card h2 {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  color: var(--text-primary);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--text-secondary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  font-size: var(--font-size-base);
+  background-color: var(--input-bg);
+  color: var(--input-text);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: var(--space-sm);
+  margin-top: var(--space-md);
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--btn-primary-hover-bg);
+}
+
+button[type="submit"]:disabled {
+  background-color: var(--status-deprecated);
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: var(--error);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: var(--space-md);
+  color: var(--text-secondary);
+}
+
+.login-footer a {
+  color: var(--text-link);
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}

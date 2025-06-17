@@ -1,0 +1,315 @@
+:root {
+  /* ========================================================= */
+  /* Core Palette - Light Theme */
+  /* ========================================================= */
+  --primary-brand: #6200ee;
+  --secondary-brand: #03dac6;
+  --accent: #bb86fc;
+
+  /* Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f8f8;
+  --bg-tertiary: #efefef;
+  --bg-card: var(--bg-primary);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+
+  /* Text Colors */
+  --text-primary: #212121;
+  --text-secondary: #616161;
+  --text-muted: #9e9e9e;
+  --text-link: var(--primary-brand);
+  --text-link-hover: var(--interactive-primary-hover);
+
+  /* Interactive States (applied to primary-brand based elements) */
+  --interactive-primary-hover: #7e33ed;
+  --interactive-primary-active: #4e00b3;
+  --interactive-secondary-hover: #02b8a2;
+  --interactive-secondary-active: #019c8a;
+
+  /* Borders & Dividers */
+  --border-light: #e0e0e0;
+  --divider-light: #f0f0f0;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.12);
+
+  /* Scrollbar */
+  --scrollbar-thumb: #c1c1c1;
+  --scrollbar-track: transparent;
+  --scrollbar-thumb-hover: #a0a0a0;
+
+  /* ========================================================= */
+  /* Typography - Light Theme */
+  /* ========================================================= */
+  --font-primary: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-secondary: "Roboto Mono", "Courier New", monospace;
+  --font-heading: var(--font-primary);
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.75rem;
+  --font-size-h4: 1.5rem;
+  --font-size-h5: 1.25rem;
+  --font-size-h6: 1rem;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-base: 1.6;
+  --line-height-heading: 1.2;
+
+  /* ========================================================= */
+  /* Spacing */
+  /* ========================================================= */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 3rem;
+
+  /* ========================================================= */
+  /* Component-Specific & Semantic Colors */
+  /* ========================================================= */
+
+  /* Status/Category Colors - Distinct & Accessible */
+  --status-planned: #ffa726;
+  --status-in-progress: #42a5f5;
+  --status-completed: #66bb6a;
+  --status-on-hold: #ef5350;
+  --status-deprecated: #bdbdbd;
+  --status-new: #9c27b0;
+
+  /* Utility Colors */
+  --error: #d32f2f;
+  --success: #388e3c;
+  --warning: #fbc02d;
+  --info: #2196f3;
+
+  /* Buttons */
+  --btn-primary-bg: var(--primary-brand);
+  --btn-primary-text: var(--bg-primary);
+  --btn-primary-hover-bg: var(--interactive-primary-hover);
+  --btn-primary-active-bg: var(--interactive-primary-active);
+
+  --btn-secondary-bg: var(--secondary-brand);
+  --btn-secondary-text: var(--text-primary);
+  --btn-secondary-hover-bg: var(--interactive-secondary-hover);
+  --btn-secondary-active-bg: var(--interactive-secondary-active);
+
+  --btn-outline-border: var(--primary-brand);
+  --btn-outline-text: var(--primary-brand);
+  --btn-outline-hover-bg: rgba(98, 0, 238, 0.1);
+
+  --btn-text-only-color: var(--primary-brand);
+  --btn-text-only-hover-color: var(--interactive-primary-hover);
+
+  /* Cards/Panels */
+  --card-bg: var(--bg-card);
+  --card-border: var(--border-light);
+  --card-shadow: var(--shadow-md);
+
+  /* Forms */
+  --input-bg: var(--bg-primary);
+  --input-border: var(--border-light);
+  --input-border-focus: var(--primary-brand);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-muted);
+
+  /* Code Blocks */
+  --code-bg: var(--bg-tertiary);
+  --code-text: var(--text-primary);
+  --code-border: var(--divider-light);
+
+  /* Navigation/Header */
+  --header-bg: var(--bg-primary);
+  --header-text: var(--text-primary);
+  --header-border-bottom: var(--border-light);
+  --nav-item-active-color: var(--primary-brand);
+  --nav-item-hover-bg: var(--bg-secondary);
+
+  /* Tooltips */
+  --tooltip-bg: var(--text-primary);
+  --tooltip-text: var(--bg-primary);
+}
+
+/* ========================================================= */
+/* Dark Theme Variables */
+/* ========================================================= */
+[data-theme="dark"] {
+  /* Core Palette - Dark Theme */
+  --primary-brand: #bb86fc;
+  --secondary-brand: #03dac6;
+  --accent: #3700b3;
+
+  /* Backgrounds */
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2c2c2c;
+  --bg-card: var(--bg-secondary);
+  --bg-glass: rgba(0, 0, 0, 0.5);
+
+  /* Text Colors */
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-muted: #757575;
+  --text-link: var(--primary-brand);
+  --text-link-hover: var(--interactive-primary-hover);
+
+  /* Interactive States (applied to primary-brand based elements) */
+  --interactive-primary-hover: #a36fff;
+  --interactive-primary-active: #8c47f0;
+  --interactive-secondary-hover: #03e0c8;
+  --interactive-secondary-active: #02c8b4;
+
+  /* Borders & Dividers */
+  --border-light: #3a3a3a;
+  --divider-light: #2a2a2a;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+
+  /* Scrollbar */
+  --scrollbar-thumb: #555;
+  --scrollbar-track: transparent;
+  --scrollbar-thumb-hover: #777;
+
+  /* ========================================================= */
+  /* Typography - Dark Theme (mostly same, but defined for completeness) */
+  /* ========================================================= */
+  --font-primary: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-secondary: "Roboto Mono", "Courier New", monospace;
+  --font-heading: var(--font-primary);
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.75rem;
+  --font-size-h4: 1.5rem;
+  --font-size-h5: 1.25rem;
+  --font-size-h6: 1rem;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-base: 1.6;
+  --line-height-heading: 1.2;
+
+  /* ========================================================= */
+  /* Spacing (generally same for both themes) */
+  /* ========================================================= */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 3rem;
+
+  /* ========================================================= */
+  /* Component-Specific & Semantic Colors - Dark Theme */
+  /* ========================================================= */
+
+  /* Status/Category Colors */
+  --status-planned: #ffb74d;
+  --status-in-progress: #64b5f6;
+  --status-completed: #81c784;
+  --status-on-hold: #ef9a9a;
+  --status-deprecated: #757575;
+  --status-new: #ce93d8;
+
+  /* Utility Colors */
+  --error: #ff5252;
+  --success: #69f0ae;
+  --warning: #ffeb3b;
+  --info: #64b5f6;
+
+  /* Buttons */
+  --btn-primary-bg: var(--primary-brand);
+  --btn-primary-text: var(--bg-primary);
+  --btn-primary-hover-bg: var(--interactive-primary-hover);
+  --btn-primary-active-bg: var(--interactive-primary-active);
+
+  --btn-secondary-bg: var(--secondary-brand);
+  --btn-secondary-text: var(--text-primary);
+  --btn-secondary-hover-bg: var(--interactive-secondary-hover);
+  --btn-secondary-active-bg: var(--interactive-secondary-active);
+
+  --btn-outline-border: var(--primary-brand);
+  --btn-outline-text: var(--primary-brand);
+  --btn-outline-hover-bg: rgba(187, 134, 252, 0.1);
+
+  --btn-text-only-color: var(--primary-brand);
+  --btn-text-only-hover-color: var(--interactive-primary-hover);
+
+  /* Cards/Panels */
+  --card-bg: var(--bg-secondary);
+  --card-border: var(--border-light);
+  --card-shadow: var(--shadow-md);
+
+  /* Forms */
+  --input-bg: var(--bg-tertiary);
+  --input-border: var(--border-light);
+  --input-border-focus: var(--primary-brand);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-muted);
+
+  /* Code Blocks */
+  --code-bg: var(--bg-tertiary);
+  --code-text: var(--text-primary);
+  --code-border: var(--divider-light);
+
+  /* Navigation/Header */
+  --header-bg: var(--bg-primary);
+  --header-text: var(--text-primary);
+  --header-border-bottom: var(--border-light);
+  --nav-item-active-color: var(--primary-brand);
+  --nav-item-hover-bg: var(--bg-secondary);
+
+  /* Tooltips */
+  --tooltip-bg: var(--text-primary);
+  --tooltip-text: var(--bg-primary);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  transition: all 0.3s ease;
+}
+
+/* Add to index.css */
+.error-fallback {
+  padding: 2rem;
+  text-align: center;
+  background: var(--error);
+  color: white;
+}

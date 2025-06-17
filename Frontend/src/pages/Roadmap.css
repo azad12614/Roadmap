@@ -1,0 +1,58 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-xl);
+  background-color: var(--bg-primary);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--header-border-bottom);
+  margin-bottom: var(--space-xl);
+}
+
+header h1 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+header .controls {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+header select {
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-sm);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+}
+
+header select:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+}
+
+header button {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+}
+
+header button:hover {
+  background-color: var(--btn-primary-hover-bg);
+}
+
+.roadmap-list {
+  display: grid;
+  gap: var(--space-lg);
+}

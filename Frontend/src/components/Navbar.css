@@ -1,0 +1,46 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--primary-brand);
+  color: var(--text-primary);
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links button {
+  margin-left: 20px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+}
+
+.theme-toggle-button {
+  font-size: 1.2rem;
+  padding: 0.4rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.theme-toggle-button:hover {
+  background-color: transparent;
+}

@@ -1,0 +1,96 @@
+.comment-section {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--divider-light);
+}
+
+.comment-section h3 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.comment-section textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: var(--space-sm);
+  font-size: var(--font-size-base);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  resize: vertical;
+}
+
+.comment-section textarea:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+}
+
+.comment-section textarea::placeholder {
+  color: var(--input-placeholder);
+}
+
+.comment-section .comment-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.comment-section .comment-actions button {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+}
+
+.comment-section .comment-actions button:hover {
+  background-color: var(--btn-primary-hover-bg);
+}
+
+.comment {
+  margin: var(--space-md) 0;
+  padding: var(--space-sm);
+  border-left: 2px solid var(--border-light);
+}
+
+.depth-1 {
+  padding-left: var(--space-lg);
+}
+.depth-2 {
+  padding-left: var(--space-xl);
+}
+.depth-3 {
+  padding-left: var(--space-xxl);
+}
+
+.comment p {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.comment small {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.comment .comment-controls {
+  display: flex;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
+.comment .comment-controls button {
+  background: none;
+  border: none;
+  color: var(--btn-text-only-color);
+  font-size: var(--font-size-xs);
+  cursor: pointer;
+}
+
+.comment .comment-controls button:hover {
+  color: var(--btn-text-only-hover-color);
+}

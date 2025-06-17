@@ -1,0 +1,71 @@
+.roadmap-item {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: var(--space-lg);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease;
+}
+
+.roadmap-item:hover {
+  transform: translateY(-2px);
+}
+
+.roadmap-item h2 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.roadmap-item p {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.roadmap-item .meta {
+  display: flex;
+  gap: var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.roadmap-item .meta span {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 4px;
+}
+
+.roadmap-item .meta .category {
+  background-color: var(--status-new);
+  color: var(--btn-primary-text);
+}
+
+.roadmap-item .meta .status-in-progress {
+  background-color: var(--status-in-progress);
+  color: var(--btn-primary-text);
+}
+
+.roadmap-item .meta .status-completed {
+  background-color: var(--status-completed);
+  color: var(--btn-primary-text);
+}
+
+.roadmap-item button {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-sm);
+}
+
+.roadmap-item button:hover {
+  background-color: var(--btn-primary-hover-bg);
+}
+
+.roadmap-item button:disabled {
+  background-color: var(--status-deprecated);
+  cursor: not-allowed;
+}
